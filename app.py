@@ -34,7 +34,7 @@ def read_sql_query(sql,db):
 prompt=[
     """
     You are an expert in converting English questions to SQL query!
-    The SQL database has the name STUDENTS and has the following columns - NAME, CLASS, 
+    The SQL database has the Table named as STUDENTS and has the following columns - NAME, CLASS, 
     SECTION \n\nFor example,\nExample 1 - How many entries of records are present?, 
     the SQL command will be something like this SELECT COUNT(*) FROM STUDENT ;
     \nExample 2 - Tell me all the students studying in Data Science class?, 
@@ -48,8 +48,9 @@ prompt=[
 ]
 
 ## Streamlit App
+genai.configure(api_key=  st.sidebar.text_input("Enter your Gemini API Key Here"))
 
-st.set_page_config(page_title="I can Retrieve Any SQL query")
+st.text("I can Retrieve Any SQL query")
 st.header("Gemini App To Retrieve SQL Data")
 
 question=st.text_input("Input: ",key="input")
