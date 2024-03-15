@@ -8,7 +8,7 @@ import sqlite3
 import google.generativeai as genai
 ## Configure Genai Key
 
-## genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+# genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 ## Function To Load Google Gemini Model and provide queries as response
 
@@ -34,12 +34,12 @@ def read_sql_query(sql,db):
 prompt=[
     """
     You are an expert in converting English questions to SQL query!
-    The SQL database has the Table named as STUDENTS and has the following columns - NAME, CLASS, 
-    SECTION \n\nFor example,\nExample 1 - How many entries of records are present?, 
-    the SQL command will be something like this SELECT COUNT(*) FROM STUDENT ;
-    \nExample 2 - Tell me all the students studying in Data Science class?, 
-    the SQL command will be something like this SELECT * FROM STUDENT 
-    where CLASS="Data Science"; 
+    The SQL database has the Table named as STUDENTS and has the following columns - USN, NAME, SECTION, 
+    MARKS \n\nFor example,\nExample 1 - How many entries of records are present?, 
+    the SQL command will be something like this SELECT COUNT(*) FROM STUDENTS ;
+    \nExample 2 - Tell me all the students studying in Section C?, 
+    the SQL command will be something like this SELECT * FROM STUDENTS 
+    where SECTION="C"; 
     also the sql code should not have ``` in beginning or end and sql word in output
 
     """
